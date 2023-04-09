@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
         //я буду использовать LinearLayoutManager. По умолчанию он обеспечивает вид  RecyclerView аналогично ListView.
         // варинаты LinearLayoutManager,  GridLayoutManager,  StaggeredGridLayoutManager
 
-       /* LinearLayoutManager llm = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(llm);*/
+        GridLayoutManager glm = new GridLayoutManager(this,2);
+        recyclerView.setLayoutManager(glm);
         initializeData();
 
         BludoAdapter blAdapter = new BludoAdapter(this,bludos);
