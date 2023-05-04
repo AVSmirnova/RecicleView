@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="150dp"
-    tools:context=".MainActivity">-->
-
     <androidx.cardview.widget.CardView
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/card_view"
         android:layout_width="match_parent"
-        android:layout_height="190dp"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
         card_view:cardElevation="10dp"
         card_view:cardCornerRadius="10dp">
@@ -21,6 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
+            android:background="?android:attr/selectableItemBackground"
             >
             <ImageView
                 android:layout_width="80dp"
@@ -37,7 +30,6 @@
                 android:id="@+id/bludo_name"
                 android:paddingTop="10dp"
                 android:layout_below="@+id/bludo_photo"
-
                 android:text="ggg"
                 android:textSize="18sp"
                 />
@@ -46,11 +38,42 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/bludo_cat"
                 android:text="eee"
-
                 android:layout_below="@+id/bludo_name"
                 />
+           <Button
+               android:id="@+id/btnPlus"
+               android:layout_width="20dp"
+               android:layout_height="30dp"
+               android:text="+"
+               android:padding="0dp"
+               android:textSize="8sp"
+               android:gravity="center"
+               android:layout_below="@+id/bludo_cat"
+               />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/count"
+                android:text="0"
+                android:layout_margin="5dp"
+                android:layout_below="@+id/bludo_cat"
+                android:layout_toEndOf="@+id/btnPlus"
+                />
+            <Button
+                android:id="@+id/btnMinus"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:text="-"
+                android:padding="0dp"
+                android:textSize="8sp"
+                android:gravity="center"
+                android:layout_below="@+id/bludo_cat"
+                android:layout_toEndOf="@+id/count"
+                />
+
+
+
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
-<!--
-</LinearLayout>-->
+

@@ -1,6 +1,9 @@
 package com.example.myapplication;
 
+import static java.security.AccessController.getContext;
+
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +44,14 @@ public class BludoAdapter extends RecyclerView.Adapter<BludoAdapter.ViewHolder> 
        holder.bludoName.setText(bludos.get(position).bludoName);
        holder.bludoCat.setText(bludos.get(position).category);
        holder.bludoView.setImageResource(bludos.get(position).bludoPicture);
+       holder.itemView.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+
+
+
+           }
+       });
 
     }
    // количество элементов, присутствующих в данных
@@ -68,4 +79,6 @@ public class BludoAdapter extends RecyclerView.Adapter<BludoAdapter.ViewHolder> 
             bludoCat = view.findViewById(R.id.bludo_cat);
         }
     }
+
+
 }
