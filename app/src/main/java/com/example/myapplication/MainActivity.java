@@ -1,11 +1,14 @@
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +16,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
      List<Bludo> bludos = new ArrayList<Bludo>();
      RecyclerView recyclerView;
+     OrderService orderService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +33,26 @@ public class MainActivity extends AppCompatActivity {
         GridLayoutManager glm = new GridLayoutManager(this,2);
         recyclerView.setLayoutManager(glm);
         initializeData();
+        orderService =new OrderService();
 
-        BludoAdapter blAdapter = new BludoAdapter(this,bludos);
+        BludoAdapter blAdapter = new BludoAdapter(this, bludos, new OrderService.bludoActionListener() {
+
+            @Override
+            public void addOrder(Bludo bludo, int count) {
+               orderService.addOrder(bludo,count);
+            }
+            @Override
+            public void removeOrder(Bludo bludo, int count) {
+                orderService.removeOrder(bludo,count);
+
+            }
+        });
+
         recyclerView.setAdapter(blAdapter);
+
+
+
+
 
     }
     private void initializeData(){
@@ -44,5 +65,18 @@ public class MainActivity extends AppCompatActivity {
         bludos.add(new Bludo("Салат летний","Закуски", R.drawable.salat));
         bludos.add(new Bludo("Творог","Завтрак", R.drawable.tvorog));
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.option_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+
+        return super.onOptionsItemSelected(item);
     }
 }
