@@ -12,7 +12,7 @@ public class OrderService {
         void  addOrder(Bludo bludo,int count);
         void removeOrder(Bludo bludo,int count);
     }
-   private List<Order> orders =new ArrayList<Order>();
+   public static  List<Order> orders =new ArrayList<Order>();
 
 
 
