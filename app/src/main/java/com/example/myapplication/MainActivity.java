@@ -57,14 +57,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
     private void initializeData(){
-        bludos.add(new Bludo("Харчо","Суп", R.drawable.harcho));
-        bludos.add(new Bludo("Омлет с луком","Завтрак", R.drawable.omlet));
-        bludos.add(new Bludo("Салат летний","Закуски", R.drawable.salat));
-        bludos.add(new Bludo("Творог","Завтрак", R.drawable.tvorog));
-        bludos.add(new Bludo("Харчо","Суп", R.drawable.harcho));
-        bludos.add(new Bludo("Омлет с луком","Завтрак", R.drawable.omlet));
-        bludos.add(new Bludo("Салат летний","Закуски", R.drawable.salat));
-        bludos.add(new Bludo("Творог","Завтрак", R.drawable.tvorog));
+        bludos.add(new Bludo("Харчо","Суп", R.drawable.harcho,230));
+        bludos.add(new Bludo("Омлет с луком","Завтрак", R.drawable.omlet,154));
+        bludos.add(new Bludo("Салат летний","Закуски", R.drawable.salat,240));
+        bludos.add(new Bludo("Творог","Завтрак", R.drawable.tvorog,130));
+        bludos.add(new Bludo("Харчо","Суп", R.drawable.harcho,230));
+        bludos.add(new Bludo("Омлет с луком","Завтрак", R.drawable.omlet,154));
+        bludos.add(new Bludo("Салат летний","Закуски", R.drawable.salat,240));
+        bludos.add(new Bludo("Творог","Завтрак", R.drawable.tvorog,130));
 
     }
 

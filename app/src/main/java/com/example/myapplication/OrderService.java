@@ -19,7 +19,7 @@ public class OrderService {
     public void addOrder(Bludo bludo,int count){
 
         if (count ==1){
-            orders.add(new Order(bludo.bludoName,count));
+            orders.add(new Order(bludo,count));
         }
          else {
              orders.get(getIndex(bludo.bludoName)).setCount(count);
@@ -40,8 +40,8 @@ public class OrderService {
     public   int getIndex(String bludoName) {
         int index=-1;
         for (int i = 0; i < orders.size(); i++) {
-            Log.i("happy", orders.get(i).bludoName);
-            if (orders.get(i).bludoName.equals(bludoName)) {
+        //    Log.i("happy", orders.get(i).bludoName);
+            if (orders.get(i).bludo.bludoName.equals(bludoName)) {
                 index=i;
 
             }

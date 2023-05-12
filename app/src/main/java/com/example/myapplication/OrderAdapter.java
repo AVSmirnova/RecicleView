@@ -34,9 +34,10 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.bludoName.setText(orders.get(position).bludoName);
-        holder.tvCount.setText(String.valueOf(orders.get(position).count));
-        holder.bludoView.setImageResource(R.drawable.harcho);
+        holder.bludoName.setText(orders.get(position).bludo.bludoName);
+        holder.tvCount.setText(String.valueOf(orders.get(position).count)+" шт.");
+        holder.bludoView.setImageResource(orders.get(position).bludo.bludoPicture);
+        holder.bludo_cost.setText(String.valueOf(orders.get(position).bludo.cost)+" руб.");
 
     }
 
@@ -48,7 +49,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder>{
     public static class ViewHolder extends RecyclerView.ViewHolder {
         CardView cv;
         ImageView bludoView;
-        TextView bludoName, tvCount;
+        TextView bludoName, tvCount,bludo_cost;
 
         ViewHolder(View view) {
             super(view);
@@ -56,7 +57,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder>{
             bludoView = view.findViewById(R.id.bludo_photo);
             bludoName = view.findViewById(R.id.bludo_name);
             tvCount = view.findViewById(R.id.bludo_count);
-
+            bludo_cost = view.findViewById(R.id.bludo_cost);
 
         }
     }

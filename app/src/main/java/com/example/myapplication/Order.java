@@ -1,11 +1,11 @@
 package com.example.myapplication;
 
 public class Order {
-    String bludoName;
+   Bludo bludo;
     int count;
 
-    public Order(String bludoName, int count) {
-        this.bludoName = bludoName;
+    public Order(Bludo bludo, int count) {
+        this.bludo = bludo;
         this.count = count;
     }
 
