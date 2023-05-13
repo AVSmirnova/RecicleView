@@ -8,21 +8,29 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
+import java.util.Locale;
 
-public class BludoAdapter extends RecyclerView.Adapter<BludoAdapter.ViewHolder> {
+public class BludoAdapter extends RecyclerView.Adapter<BludoAdapter.ViewHolder> implements Filterable {
 
     private LayoutInflater inflater;
     private List<Bludo> bludos;
-    private Context context;
+    private List<Bludo> bludosFull;
     private int count=0;
 
     private OrderService.bludoActionListener bludoActionListener;
@@ -30,7 +38,8 @@ public class BludoAdapter extends RecyclerView.Adapter<BludoAdapter.ViewHolder> 
     public BludoAdapter(Context context, List<Bludo> bludos, OrderService.bludoActionListener bludoActionListener ) {
         this.inflater = LayoutInflater.from(context);
         this.bludos = bludos;
-        this.context=context;
+        this.bludosFull=new ArrayList<>(bludos);
+
         this.bludoActionListener=bludoActionListener;
 
     }
@@ -89,7 +98,43 @@ public class BludoAdapter extends RecyclerView.Adapter<BludoAdapter.ViewHolder> 
         super.onAttachedToRecyclerView(recyclerView);
     }
 
+    @Override
+    public Filter getFilter() {
+        return bludoFilter;
 
+    }
+
+    private Filter bludoFilter = new Filter(){
+
+        @Override
+        protected FilterResults performFiltering(CharSequence charSequence) {
+           List<Bludo> filteredList = new ArrayList<Bludo>() ;
+
+           if (charSequence==null|| charSequence.length()==0){
+               filteredList.addAll(bludosFull);
+           } else{
+               String filterPattern = charSequence.toString().toLowerCase().trim();
+               for (Bludo bludo: bludos){
+                   if (bludo.bludoName.toLowerCase().contains(filterPattern)){
+                       filteredList.add(bludo);
+                   }
+               }
+           }
+
+           FilterResults results = new FilterResults();
+           results.values=filteredList;
+           return results;
+
+        }
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+            bludos.clear();
+            bludos.addAll((List) filterResults.values);
+            notifyDataSetChanged();
+
+        }
+    };
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder{

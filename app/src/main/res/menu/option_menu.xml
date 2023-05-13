@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-<item android:id="@+id/cart"
+
+    <item android:id="@+id/search_view"
+        android:title="Поиск"
+        android:icon="@drawable/baseline_search_24"
+        app:showAsAction="ifRoom"
+        app:actionViewClass="android.widget.SearchView" />
+
+    <item android:id="@+id/cart"
     android:title="Корзина"
     android:icon="@drawable/baseline_shopping_cart_24"
     app:showAsAction="ifRoom"/>
